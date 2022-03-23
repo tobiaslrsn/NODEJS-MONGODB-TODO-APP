@@ -1,0 +1,154 @@
+<div class="wrapper-start">
+
+    <div class="dropdown">
+      <button class="dropbtn">SORT:</button>
+      <div class="dropdown-content">
+        <ul>
+          <li><a href="/todos/new-to-old">NEW TO OLD</a></li>
+          <li><a href="/todos/old-to-new">OLD TO NEW</a></li>
+          <li><a href="/todos/checked-todos">CHECKED</a></li>
+          <li><a href="/todos/unchecked-todos">UNCHECKED</a></li>
+        </ul>
+      </div>
+    </div>
+
+  <div class="added-todos">
+
+    {{#each todos}}
+      {{! IF FALSE }}
+          
+
+      {{#if done}}
+        <div class="todo-completed todo-status">
+          <ul>
+            <li>
+              <form action="/todos/{{_id}}/not-done" method="post">
+                <input type="hidden" name="redir" value="{{../redir}}" />
+
+                <button type="submit" class="check-btn-done"><i
+                    class="bi bi-check-circle"
+                  ></i>
+
+                </button>
+              </form>
+              {{!  GO TO MORE INFO }}
+              <a href="/todos/{{_id}}" class="make-row">
+                <p class="paragraph-done">{{title}}</p>
+
+              </a>
+              {{! ! GO TO MORE INFO }}
+
+              <div class="edit-and-delete">
+                {{! GO TO EDIT }}
+                <a href="/todos/edit/{{_id}}">
+                <button class="edit-todo-btn">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                </a>
+                {{!  ! GO TO EDIT }}
+
+                {{! DELETE }}
+                <form action="/todos/{{_id}}" method="post">
+                  <button type="submit" class="delete-todo-btn">
+                    <i class="bi bi-x-circle"></i>
+                  </button></form>
+                {{! !DELETE }}
+              </div>
+            </li>
+          </ul>
+        </div>
+        {{!  !IF FALSE }}
+
+        {{! IF TRUE }}
+      {{else}}
+        <div class="todo-not-complete todo-status">
+          <ul>
+            <li>
+
+              <form action="/todos/{{_id}}/done" method="post">
+                <input type="hidden" name="redir" value="{{../redir}}" />
+
+                <button type="submit" class="check-btn-not-done"><i
+                    class="bi bi-check-circle"
+                  ></i></button>
+              </form>
+
+              {{!  GO TO MORE INFO }}
+              <a href="/todos/{{_id}}" class="make-row">
+                <p class="paragraph-not-done">{{title}}</p>
+                <div class="edit-and-delete">
+                  {{! GO TO EDIT }}
+                  <a href="/todos/edit/{{_id}}"><button class="edit-todo-btn">
+                      <i class="bi bi-pencil-square"></i>
+                    </button>
+                  </a>
+                  {{!  ! GO TO EDIT }}
+
+                  {{! DELETE }}
+                  <form action="/todos/{{_id}}" method="post">
+                    <button type="submit" class="delete-todo-btn">
+                      <i class="bi bi-x-circle"></i>
+                    </button>
+                  </form>
+                  {{! !DELETE }}
+
+                </div>
+              </a>
+              {{! ! GO TO MORE INFO }}
+            </li>
+          </ul>
+        </div>
+        {{! !IF TRUE }}
+
+      {{/if}}
+    {{/each}}
+
+  </div>
+</div>
+
+<section id="intro">
+  <div>
+    <a href="#modal" class="button-activate"><i
+        class="bi bi-plus-circle"
+      ></i></a>
+  </div>
+
+</section>
+
+<div id="modal">
+  <a href="#"></a>
+  <section>
+    <form action="/todos" method="post" class="modal-form">
+
+      <input
+        type="text"
+        name="title"
+        class="todo-inputs"
+        placeholder="Add a title..."
+        
+      />
+      <input
+        type="date"
+        name="deadline"
+        class="todo-inputs"
+        value="Set a deadline"
+        
+      />
+      
+
+      <textarea
+        name="description"
+        class="todo-inputs"
+        placeholder="Add a description...."
+        
+      ></textarea>
+
+      <div class="controls">
+        <button type="submit" id="todo-submit-btn">ADD</button>
+
+        <a href="#">CANCEL</a>
+      </div>
+    </form>
+
+  </section>
+</div>

@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{!  BOOTSTRAP ICONS }}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+
+    {{! GOOGLE FONT }}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    {{! STYLE }}
+    <link rel="stylesheet" href="/styles/main.css" />
+    {{!   <link rel="stylesheet" href="/styles/hamburger-menu.css" />
+    <link rel="stylesheet" href="/styles/dropdown.css" />
+    <link rel="stylesheet" href="/styles/modal.css" /> }}
+    <title>TODO APPZ</title>
+  </head>
+  <body>
+    {{! HAMBURGER MENU SRC: https://codepen.io/bradtraversy/pen/vMGBjQ }}
+    <nav>
+      <div class="menu-wrap">
+        <input type="checkbox" class="toggler" />
+        <div class="hamburger"><div></div></div>
+        <div class="menu">
+          <div>
+            <div>
+              <ul>
+                <li><a href="/todos/">TODOS</a></li>
+                <li><a href="/todos/checked-todos">CHECKED</a></li>
+                <li><a href="/todos/unchecked-todos">UNCHECKED</a></li>
+                <li><a href="/todos/new-to-old">NEW TO OLD</a></li>
+                <li><a href="/todos/old-to-new">OLD TO NEW</a></li>
+                <li><a href=""></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {{{body}}}
+
+    <script src="/modal.js"></script>
+  </body>
+</html>

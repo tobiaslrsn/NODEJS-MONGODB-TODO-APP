@@ -1,0 +1,41 @@
+<div class="added-todo-container">
+  <div class="single-todo-container">
+
+    <ul class="single-container">
+
+      <p>TITLE: </p>
+      <li>{{title}}</li>
+
+      <p>POSTED ON: </p>
+      <li>{{date}}</li>
+
+      <p>DESCRIPTION: </p>
+      <li> {{description}} </li>
+
+      <p>DEADLINE: </p>
+      <li> {{deadline}} </li>
+
+      <div class="updates-delete-single">
+        {{! GO TO EDIT }}
+        <a href="/todos/edit/{{_id}}">
+          <button class="edit-todo-btn">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+        </a>
+        {{!  ! GO TO EDIT }}
+
+        {{! DELETE }}
+        <form action="/todos/{{_id}}" method="post">
+          <button type="submit" class="delete-todo-btn">
+            <i class="bi bi-x-circle"></i>
+          </button>
+        </form>
+
+      </div>
+      <a href="/todos"><i class="bi bi-arrow-left-circle"></i>
+        RETURN</a>
+    </ul>
+
+  </div>
+
+</div>
